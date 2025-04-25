@@ -1,0 +1,46 @@
+export const plans = [
+  {
+    name: 'Starter',
+    price: 'Free',
+    description: 'Perfect for getting started with essential learning tools',
+    features: [
+      'Interactive Short Notes',
+      'Basic Quizzes',
+      'Community Access',
+      'Study Progress Tracking',
+      'Basic Analytics',
+      'Email Support',
+    ],
+  },
+  {
+    name: 'Pro',
+    price: '$9',
+    description: 'Advanced features for serious learners',
+    features: [
+      'All Starter Features',
+      'Audio Notes & Transcription',
+      'Study Streaks & Rewards',
+      'Personalized Study Roadmap',
+      'Important Questions Bank',
+      'AI-Powered Oral Exam Practice',
+      'Priority Email Support',
+      '24/7 Chat Support',
+    ],
+    featured: true,
+  },
+  {
+    name: 'Team',
+    price: '$19',
+    description: 'Perfect for study groups and institutions',
+    features: [
+      'All Pro Features',
+      'Team Collaboration Tools',
+      'Advanced Analytics Dashboard',
+      'Custom Study Plans',
+      'Unlimited Practice Tests',
+      'API Access',
+      'Dedicated Success Manager',
+      'Custom Integrations',
+    ],
+  },
+];
