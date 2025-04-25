@@ -1,8 +1,6 @@
-import React from 'react';
 import { Menu } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ThemeToggle } from './ThemeToggle';
-import { Link } from 'react-router-dom';
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -64,10 +62,6 @@ export function MobileMenu({ isOpen, onToggle }: MobileMenuProps) {
                 <div className="flex items-center gap-4">
                   <ThemeToggle />
                   <span className="text-sm text-gray-600 dark:text-gray-400">Toggle theme</span>
-                </div>
-                <div className="flex flex-col gap-3">
-                  
-                  
                 </div>
               </div>
             </motion.div>
