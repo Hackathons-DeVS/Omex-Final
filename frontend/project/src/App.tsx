@@ -38,7 +38,7 @@ function App() {
                     />
                     <span className="text-sm font-light tracking-wide">BY</span>
                     <a 
-                      href="https://github.com/vansh" 
+                      href="https://github.com/VANSHJAIN-exe" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="text-sm font-medium relative group"
@@ -50,7 +50,7 @@ function App() {
                     </a>
                     <span className="text-sm font-light tracking-wide">&</span>
                     <a 
-                      href="https://github.com/shikhar" 
+                      href="https://github.com/ShikharSomething" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="text-sm font-medium relative group"
