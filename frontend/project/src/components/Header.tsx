@@ -35,22 +35,7 @@ export function Header() {
                 <span className="text-sm font-medium text-purple-600">{tokens} Tokens</span>
               </div>
             )}
-            {!user ? (
-              <>
-                <Link 
-                  to="/login"
-                  className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors"
-                >
-                  Log in
-                </Link>
-                <Link 
-                  to="/signup"
-                  className="px-4 py-2 text-sm font-medium text-white dark:text-black bg-black dark:bg-white rounded-full hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors"
-                >
-                  Sign up
-                </Link>
-              </>
-            ) : (
+            {user && (
               <button
                 onClick={() => navigate('/study-streaks')}
                 className="px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full hover:opacity-90 transition-opacity"
@@ -64,7 +49,7 @@ export function Header() {
             {user && (
               <div className="flex items-center gap-2 px-3 py-1 bg-gradient-to-r from-purple-600/10 to-indigo-600/10 rounded-full">
                 <Coins className="h-4 w-4 text-yellow-500" />
-                <span className="text-xs font-medium text-purple-600">{tokens}</span>
+                <span className="text-sm font-medium text-purple-600">{tokens}</span>
               </div>
             )}
             
