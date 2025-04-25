@@ -54,8 +54,8 @@ const Mainpage = () => {
       toast.error('Please upload a PDF file');
       return false;
     }
-    if (file.size > 10 * 1024 * 1024) { // 10MB limit
-      toast.error('File size should be less than 10MB');
+    if (file.size > 500 * 1024) { // 500KB limit
+      toast.error('File size should be less than 500KB');
       return false;
     }
     return true;
