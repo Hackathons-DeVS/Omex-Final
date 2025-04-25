@@ -37,22 +37,7 @@ export function StudyHeader({ tokens }: StudyHeaderProps) {
               <Coins className="h-5 w-5 text-yellow-500" />
               <span className="text-sm font-semibold text-purple-600 dark:text-purple-400">{tokens} Tokens</span>
             </Link>
-            {!user ? (
-              <>
-                <Link 
-                  to="/login"
-                  className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors"
-                >
-                  Log in
-                </Link>
-                <Link 
-                  to="/signup"
-                  className="px-4 py-2 text-sm font-medium text-white dark:text-black bg-black dark:bg-white rounded-full hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors"
-                >
-                  Sign up
-                </Link>
-              </>
-            ) : (
+            {user && (
               <button
                 onClick={() => navigate('/study-streaks')}
                 className="px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full hover:opacity-90 transition-opacity"
