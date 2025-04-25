@@ -5,23 +5,23 @@ import { BookOpen, Brain, Target, Award } from 'lucide-react';
 const steps = [
   {
     icon: BookOpen,
-    title: 'Choose Your Path',
-    description: 'Select from a variety of learning paths tailored to your goals and interests.',
+    title: 'Upload your pdf',
+    description: 'Just upload your pdf to get started.',
   },
   {
     icon: Brain,
-    title: 'AI-Powered Learning',
-    description: 'Experience personalized learning with our advanced AI that adapts to your pace.',
+    title: 'AI-Powered Pdf to Mindmaps',
+    description: 'Gives you short summarized key points important for the exams in a visual form.',
   },
   {
     icon: Target,
     title: 'Practice & Apply',
-    description: 'Reinforce your knowledge through interactive exercises and real-world projects.',
+    description: 'Reinforce your knowledge through interactive exercises',
   },
   {
     icon: Award,
-    title: 'Track Progress',
-    description: 'Monitor your achievements and growth with detailed analytics and insights.',
+    title: 'Get tokens',
+    description: 'Claim tokens which can be used to gain interesting awards to keep you motivated.',
   },
 ];
 
