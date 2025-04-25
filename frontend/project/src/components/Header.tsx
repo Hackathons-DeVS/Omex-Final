@@ -35,6 +35,14 @@ export function Header() {
                 <span className="text-sm font-medium text-purple-600">{tokens} Tokens</span>
               </div>
             )}
+            {!user && (
+              <button
+                onClick={() => navigate('/mainpage')}
+                className="px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full hover:opacity-90 transition-opacity"
+              >
+                Get Started
+              </button>
+            )}
             {user && (
               <button
                 onClick={() => navigate('/study-streaks')}
@@ -46,6 +54,14 @@ export function Header() {
           </div>
           <div className="md:hidden flex items-center gap-4">
             {/* Tokens Display (Mobile) */}
+            {!user && (
+               <button
+                onClick={() => navigate('/mainpage')}
+                className="px-3 py-1 text-sm font-medium text-white bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full hover:opacity-90 transition-opacity"
+               >
+                 Get Started
+               </button>
+            )}
             {user && (
               <div className="flex items-center gap-2 px-3 py-1 bg-gradient-to-r from-purple-600/10 to-indigo-600/10 rounded-full">
                 <Coins className="h-4 w-4 text-yellow-500" />
