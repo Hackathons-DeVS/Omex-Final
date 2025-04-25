@@ -6,7 +6,7 @@ const features = [
   {
     icon: Brain,
     title: 'AI Learning',
-    description: 'Adaptive algorithms that evolve with your progress.',
+    description: 'Mindmaps made with your pdf',
   },
   {
     icon: Zap,
