@@ -16,10 +16,10 @@ export function Header() {
     <header className="fixed w-full top-0 z-50 border-b border-black/10 dark:border-white/10 bg-white dark:bg-black">
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
+          <Link to="/" className="flex items-center gap-2 hover:opacity-90 transition-opacity">
             <Logo />
             <span className="text-xl font-bold text-black dark:text-white tracking-tight">omex</span>
-          </div>
+          </Link>
 
           <nav className="hidden md:flex items-center gap-8">
             <a href="#features" className="text-sm text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors">Features</a>
