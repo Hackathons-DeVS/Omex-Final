@@ -13,7 +13,7 @@ const testimonials = [
     name: 'Alex M.',
     role: 'Medical Student',
     image: 'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&h=256&q=80',
-    quote: 'The 3D visualizations helped me understand complex concepts effortlessly.',
+    quote: 'The Mindmaps helps me finish off concepts easily through visual learning and understanding the key-points.',
   },
   {
     name: 'Emma R.',
