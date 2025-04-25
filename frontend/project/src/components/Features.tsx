@@ -20,8 +20,8 @@ const features = [
   },
   {
     icon: Map,
-    title: 'Custom Paths',
-    description: 'Personalized roadmaps for your goals.',
+    title: 'Custom Study Plans',
+    description: 'Personalized study plans to suit your needs.',
   },
   {
     icon: FileQuestion,
@@ -30,8 +30,8 @@ const features = [
   },
   {
     icon: Users,
-    title: 'Community',
-    description: 'Learn and grow with peers worldwide.',
+    title: 'Real World Content',
+    description: 'Trains you on questions appearing in real exams.',
   },
 ];
 
