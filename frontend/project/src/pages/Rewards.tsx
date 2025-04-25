@@ -4,8 +4,7 @@ import { Gift, GamepadIcon, ShoppingBag, Music2, Film, Headphones, Coffee, BookO
 import { useAuth } from '../hooks/useAuth';
 
 export function Rewards() {
-  const { user } = useAuth();
-  const tokens = user?.tokens || 0;
+  const { tokens } = useAuth();
   const rewards = [
     {
       title: 'Laptop',
