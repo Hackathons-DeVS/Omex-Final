@@ -103,7 +103,7 @@ const Mainpage = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-black">
+    <div className="min-h-screen flex flex-col bg-white dark:bg-black">
       <Header>
         <div className="hidden md:flex items-center gap-4 ml-8">
           <div className="flex items-center gap-2 px-4 py-2 bg-black/5 dark:bg-white/5 rounded-full">
