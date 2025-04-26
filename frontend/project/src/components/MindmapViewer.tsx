@@ -13,15 +13,9 @@ interface MindmapViewerProps {
   processingTime?: number;
 }
 
-interface ZoomState {
-  scale: number;
-  mindmapId: string;
-}
-
 export const MindmapViewer: React.FC<MindmapViewerProps> = ({ mindmaps, processingTime }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
-  const [zoomStates, setZoomStates] = React.useState<{ [key: string]: ZoomState }>({});
 
   useEffect(() => {
     // Configure mermaid with theme that matches the site
@@ -60,9 +54,6 @@ export const MindmapViewer: React.FC<MindmapViewerProps> = ({ mindmaps, processi
                   svg.style.width = '100%';
                   svg.style.maxWidth = '100%';
                   svg.style.borderRadius = '0.5rem';
-                  svg.style.transform = `scale(${zoomStates[`mindmap-${index}`]?.scale || 1})`;
-                  svg.style.transformOrigin = 'center';
-                  svg.style.transition = 'transform 0.3s ease';
                  
                   // Find all text elements and style them
                   const textElements = svg.querySelectorAll('text');
@@ -130,64 +121,6 @@ export const MindmapViewer: React.FC<MindmapViewerProps> = ({ mindmaps, processi
             {mindmap.title}
           </h3>
          
-          <div className="flex justify-end gap-2 mb-4">
-            <button
-              onClick={() => {
-                const svg = containerRef.current?.querySelector(`#mindmap-${index} svg`);
-                if (svg) {
-                  const svgData = new XMLSerializer().serializeToString(svg);
-                  const blob = new Blob([svgData], { type: 'image/svg+xml' });
-                  const url = URL.createObjectURL(blob);
-                  const link = document.createElement('a');
-                  link.href = url;
-                  link.download = `${mindmap.title.replace(/\s+/g, '_')}_mindmap.svg`;
-                  document.body.appendChild(link);
-                  link.click();
-                  document.body.removeChild(link);
-                  URL.revokeObjectURL(url);
-                }
-              }}
-              className="px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-purple-600 to-indigo-600 rounded-lg hover:opacity-90 transition-opacity flex items-center gap-2"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-              </svg>
-              Download SVG
-            </button>
-            <div className="flex items-center gap-2 bg-white/50 dark:bg-black/50 rounded-lg px-3">
-              <button
-                onClick={() => {
-                  const currentScale = zoomStates[`mindmap-${index}`]?.scale || 1;
-                  setZoomStates(prev => ({
-                    ...prev,
-                    [`mindmap-${index}`]: { scale: Math.max(0.5, currentScale - 0.1), mindmapId: `mindmap-${index}` }
-                  }));
-                }}
-                className="text-purple-600 hover:text-purple-700 dark:text-purple-400 dark:hover:text-purple-300"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4" />
-                </svg>
-              </button>
-              <span className="text-sm text-gray-600 dark:text-gray-400">
-                {Math.round((zoomStates[`mindmap-${index}`]?.scale || 1) * 100)}%
-              </span>
-              <button
-                onClick={() => {
-                  const currentScale = zoomStates[`mindmap-${index}`]?.scale || 1;
-                  setZoomStates(prev => ({
-                    ...prev,
-                    [`mindmap-${index}`]: { scale: Math.min(2, currentScale + 0.1), mindmapId: `mindmap-${index}` }
-                  }));
-                }}
-                className="text-purple-600 hover:text-purple-700 dark:text-purple-400 dark:hover:text-purple-300"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-                </svg>
-              </button>
-            </div>
-          </div>
           <div
             className="mindmap-diagram bg-white/50 dark:bg-black/50 rounded-xl p-2"
             style={{ height: '400px', overflow: 'auto' }}
