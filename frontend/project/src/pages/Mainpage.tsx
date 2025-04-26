@@ -175,7 +175,7 @@ const Mainpage = () => {
                           </button>
                         </p>
                         <p className="mt-2 text-xs text-gray-600 dark:text-gray-400">
-                          Only PDF files are supported (max 10MB)
+                          Only PDF files are supported (max 500kb)
                         </p>
                       </div>
                     </div>
