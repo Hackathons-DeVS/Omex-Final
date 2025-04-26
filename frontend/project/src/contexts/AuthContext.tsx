@@ -26,8 +26,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [tokens, setTokens] = useState(0);
 
   useEffect(() => {
-    // Check for existing token on mount
+    // Check for existing token and tokens on mount
     const savedToken = localStorage.getItem('token');
+    const savedTokens = localStorage.getItem('tokens');
+    
+    if (savedTokens) {
+      setTokens(parseInt(savedTokens, 10));
+    }
+    
     if (savedToken) {
       setToken(savedToken);
       // Fetch user data with token
@@ -116,6 +122,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const updateTokens = (newTokens: number) => {
     setTokens(newTokens);
+    localStorage.setItem('tokens', newTokens.toString());
     if (user) {
       setUser({ ...user, tokens: newTokens });
     }
