@@ -20,9 +20,11 @@ export function StudyHeader({ tokens }: StudyHeaderProps) {
     <header className="fixed w-full top-0 z-50 border-b border-black/10 dark:border-white/10 bg-white dark:bg-black">
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Logo />
-            <span className="text-xl font-bold text-black dark:text-white tracking-tight">omex</span>
+          <div className="flex items-center justify-between">
+            <Link to="/" className="flex items-center gap-2">
+              <Logo />
+              <span className="text-xl font-bold text-black dark:text-white tracking-tight">omex</span>
+            </Link>
           </div>
 
           <nav className="hidden md:flex items-center gap-8">
