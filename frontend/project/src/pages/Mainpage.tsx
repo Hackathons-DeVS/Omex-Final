@@ -72,7 +72,7 @@ const Mainpage = () => {
       formData.append('file', file);
 
       const startTime = Date.now();
-      const response = await fetch('http://localhost:5000/api/mindmap/upload', {
+      const response = await fetch('https://omex-final.onrender.com/api/mindmap/upload', {
         method: 'POST',
         body: formData,
       });
@@ -85,7 +85,7 @@ const Mainpage = () => {
       const endTime = Date.now();
       setProcessingTime((endTime - startTime) / 1000); // Convert to seconds
       setMindmaps(data.mindmaps);
-      
+
       toast.success('Mindmap generated successfully!');
     } catch (error: any) {
       console.error('Upload error:', error);

@@ -1,5 +1,5 @@
 {
-  "proxy": "http://localhost:5000",
+  "proxy": "https://omex-final.onrender.com",
   "name": "xemo-learning-platform",
   "private": true,
   "version": "0.0.0",

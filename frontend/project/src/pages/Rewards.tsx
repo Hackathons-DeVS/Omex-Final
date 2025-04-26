@@ -2,9 +2,11 @@ import { StudyHeader } from '../components/StudyHeader';
 import { Footer } from '../components/Footer';
 import { Gift, GamepadIcon, ShoppingBag, Music2, Film, Headphones, Coffee, BookOpen, Laptop, Briefcase, Medal, Book, GraduationCap, Trophy, Star } from 'lucide-react';
 import { useAuth } from '../hooks/useAuth';
+import { useEffect } from 'react';
 
 export function Rewards() {
   const { tokens } = useAuth();
+
   const rewards = [
     {
       title: 'Laptop',

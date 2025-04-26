@@ -29,11 +29,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     // Check for existing token and tokens on mount
     const savedToken = localStorage.getItem('token');
     const savedTokens = localStorage.getItem('tokens');
-    
+
     if (savedTokens) {
       setTokens(parseInt(savedTokens, 10));
     }
-    
+
     if (savedToken) {
       setToken(savedToken);
       // Fetch user data with token
@@ -48,11 +48,17 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
           'Authorization': `Bearer ${authToken}`
         }
       });
-      
+
       if (response.ok) {
         const userData = await response.json();
-        setUser(userData);
-        setTokens(userData.tokens || 0);
+        // Create a user object without overwriting locally stored tokens
+        const userWithLocalTokens = {
+          ...userData,
+          tokens: tokens // Keep the tokens from local state instead of API
+        };
+        setUser(userWithLocalTokens);
+        // Don't update tokens from API response
+        // setTokens(userData.tokens || 0); - removed to prevent overwriting local tokens
       }
     } catch (error) {
       console.error('Error fetching user data:', error);
@@ -118,6 +124,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setToken(null);
     setTokens(0);
     localStorage.removeItem('token');
+    localStorage.removeItem('tokens'); // Also clear tokens from localStorage on signout
   };
 
   const updateTokens = (newTokens: number) => {
@@ -129,15 +136,15 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   };
 
   return (
-    <AuthContext.Provider value={{ 
-      user, 
-      token, 
-      loading, 
+    <AuthContext.Provider value={{
+      user,
+      token,
+      loading,
       tokens,
-      signIn, 
-      signUp, 
+      signIn,
+      signUp,
       signOut,
-      updateTokens 
+      updateTokens
     }}>
       {children}
     </AuthContext.Provider>

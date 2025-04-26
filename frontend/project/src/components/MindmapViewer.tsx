@@ -40,28 +40,28 @@ export const MindmapViewer: React.FC<MindmapViewerProps> = ({ mindmaps, processi
     if (mindmaps.length > 0 && containerRef.current) {
       // Create unique IDs for each mindmap
       const mindmapElements = containerRef.current.querySelectorAll('.mindmap-diagram');
-     
+
       mindmapElements.forEach((element, index) => {
         setTimeout(() => {
           try {
             mermaid.render(`mindmap-${index}`, mindmaps[index].code)
               .then(result => {
                 element.innerHTML = result.svg;
-               
+
                 // Add some extra styling to the SVG elements
                 const svg = element.querySelector('svg');
                 if (svg) {
                   svg.style.width = '100%';
                   svg.style.maxWidth = '100%';
                   svg.style.borderRadius = '0.5rem';
-                 
+
                   // Find all text elements and style them
                   const textElements = svg.querySelectorAll('text');
                   textElements.forEach(text => {
                     text.style.fontFamily = 'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif';
                     text.style.fontSize = '14px';
                   });
-                 
+
                   // Style the nodes
                   const nodes = svg.querySelectorAll('.node');
                   nodes.forEach(node => {
@@ -112,15 +112,15 @@ export const MindmapViewer: React.FC<MindmapViewerProps> = ({ mindmaps, processi
           </p>
         </div>
       )}
-      
+
       {mindmaps.map((mindmap, index) => (
         <div key={index} className="relative bg-white dark:bg-black border border-black/10 dark:border-white/20 rounded-3xl p-6 shadow-lg">
           <NeonBorder />
-         
+
           <h3 className="text-2xl font-bold text-black dark:text-white mb-6">
             {mindmap.title}
           </h3>
-         
+
           <div
             className="mindmap-diagram bg-white/50 dark:bg-black/50 rounded-xl p-2"
             style={{ height: '400px', overflow: 'auto' }}
