@@ -46,7 +46,12 @@ export function Hero() {
               >
                 Start Learning
               </Button>
-              <Button variant="secondary">Watch Demo</Button>
+              <Button
+                variant="secondary"
+                onClick={() => window.open('https://youtu.be/J246vCdJUZ0?si=vWQrUC0w87fm9WsP', '_blank')}
+              >
+                Watch Demo
+              </Button>
             </motion.div>
           </div>
         </div>
